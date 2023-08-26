@@ -1,0 +1,22 @@
+.wrapper {
+  padding: 0 66px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  .InfoAvatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .menuButton {
+    color: #f2f2f2;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.profilePanelContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  padding: 20px 20px;
+  .ProfileHeaderItem {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .ProfileDetailItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .ButtonContainer {
+    display: flex;
+    gap: 24px;
+  }
+}
+
+.chips {
+  margin-right: 8px;
+}
