@@ -1,11 +1,23 @@
+.ProfileTopBackground {
+  position: absolute;
+  width: 100%;
+  height: 180px;
+  background-color: #fe017aa3;
+  background-image: url("../../assets/img/profilebg.png");
+  background-position: center 80%;
+  z-index: -1;
+}
 .wrapper {
   padding: 0 66px;
   display: flex;
   flex-direction: column;
+  margin-top: 134px;
+  z-index: 1;
   gap: 24px;
   .InfoAvatar {
-    width: 70px;
-    height: 70px;
+    width: 88px;
+    height: 88px;
+    border: 6px solid #191B1F;
     border-radius: 50%;
   }
   .container {

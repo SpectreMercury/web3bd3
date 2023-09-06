@@ -1,3 +1,6 @@
+body {
+  margin: 0;
+}
 :root {
   background-color: #191B1F;
 }
@@ -23,11 +26,11 @@
 }
 
 .MuiFormLabel-root {
-  display: none !important;
+  /*display: none !important;*/
 }
 
 .MuiOutlinedInput-notchedOutline {
-  display: none !important;
+  /*display: none !important;*/
 }
 
 .css-2m9kme-MuiFormControl-root {

@@ -8,6 +8,8 @@ interface Window {
     ethereum?: Ethereum;
 }
 
+declare let ethereum: any;
+
 declare module "*.mp4" {
     const src: string;
     export default src;
