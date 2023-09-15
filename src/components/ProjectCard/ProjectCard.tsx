@@ -19,7 +19,7 @@ const MediaCard:React.FC<MediaCardProps> = ({ image, title, chips, type, network
 
     return (
         <Link href={'/info'}>
-            <Card className={styles.MediaCardItem} sx={{ width: 280, height: 398 }}>
+            <Card className={styles.MediaCardItem} sx={{ width: 280, height: 398, border: '1px solid #F5FAFF' }}>
                 <CardMedia
                     sx={{ height: 160 }}
                     image={image}

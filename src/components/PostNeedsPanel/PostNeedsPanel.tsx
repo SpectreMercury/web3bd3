@@ -143,33 +143,23 @@ const PostNeedsPanel: React.FC = () => {
                                 BD Offer
                             </Typography>
                             <div className={styles.cryptoChangeContainer}>
-                                <FormControl className={styles.cryptoTypeSelector} sx={{ m: 1, width: 300 }}>
-
-                                    <InputLabel id="demo-multiple-name-label">Name</InputLabel>
+                                <FormControl>
+                                    <InputLabel id="demo-simple-select-label">Coin</InputLabel>
                                     <Select
-                                        labelId="demo-multiple-name-label"
-                                        id="demo-multiple-name"
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
                                         value={crypto}
+                                        label="Age"
                                         onChange={handleChange}
-                                        MenuProps={MenuProps}
-                                        input={
-                                            <OutlinedInput
-                                                notched={false}
-                                                style={{ border: 0 }}
-                                            />
-                                        }
                                     >
-                                        {cryptoList.map((coin) => (
-
-                                            <MenuItem
-                                                key={coin}
-                                                value={coin}
-                                            >
-                                                {coin}
+                                        {cryptoList.map((crypto, index) => (
+                                            <MenuItem key={index} value={crypto}>
+                                                {crypto}
                                             </MenuItem>
                                         ))}
                                     </Select>
                                 </FormControl>
+
                                 <Input
                                     className={styles.cryptoTypeInput}
                                     disableUnderline
@@ -195,7 +185,6 @@ const PostNeedsPanel: React.FC = () => {
                                     label="Hours"
                                     value={hours}
                                     onChange={(e) => setHours(e.target.value)}
-                                    InputProps={{ endAdornment: <span>时</span> }} // 添加单位
                                     inputProps={{ min: "0", max: "24", step: "1" }}
                                 />
                                 <TextField
@@ -203,7 +192,6 @@ const PostNeedsPanel: React.FC = () => {
                                     label="Minutes"
                                     value={minutes}
                                     onChange={(e) => setMinutes(e.target.value)}
-                                    InputProps={{ endAdornment: <span>分</span> }} // 添加单位
                                     inputProps={{ min: "0", max: "60", step: "1" }}
                                 />
                             </Box>
@@ -261,42 +249,32 @@ const PostNeedsPanel: React.FC = () => {
                             <Typography variant="h6" gutterBottom>
                                 BD Requirements
                             </Typography>
-                            <Typography variant="overline">
-                                lease input your needs: <br/>
-                                Reference: <br/>
-                                Send your information card to those projects who can post  your information card on X(twitter). <br/>
-                                Verify your project’s info. <br/>
-                                Set partnership with them. <br/>
-                            </Typography>
+                            <TextField
+                                variant="outlined"
+                                fullWidth
+                                multiline
+                                placeholder={lines.join('\n')}
+                                value={desc}
+                                onChange={(e) => setDesc(e.target.value)}
+                            />
                         </div>
                         <div className={styles.requirementsContainer}>
                             <Typography variant="h6" gutterBottom>
                                 BD Offer
                             </Typography>
                             <div className={styles.cryptoChangeContainer}>
-                                <FormControl className={styles.cryptoTypeSelector} sx={{ m: 1, width: 300 }}>
-
-                                    <InputLabel id="demo-multiple-name-label">Name</InputLabel>
+                                <FormControl>
+                                    <InputLabel id="demo-simple-select-label">Coin</InputLabel>
                                     <Select
-                                        labelId="demo-multiple-name-label"
-                                        id="demo-multiple-name"
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
                                         value={crypto}
+                                        label="Age"
                                         onChange={handleChange}
-                                        MenuProps={MenuProps}
-                                        input={
-                                            <OutlinedInput
-                                                notched={false}
-                                                style={{ border: 0 }}
-                                            />
-                                        }
                                     >
-                                        {cryptoList.map((coin) => (
-
-                                            <MenuItem
-                                                key={coin}
-                                                value={coin}
-                                            >
-                                                {coin}
+                                        {cryptoList.map((crypto, index) => (
+                                            <MenuItem key={index} value={crypto}>
+                                                {crypto}
                                             </MenuItem>
                                         ))}
                                     </Select>
