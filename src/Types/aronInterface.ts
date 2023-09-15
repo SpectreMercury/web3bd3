@@ -1,4 +1,4 @@
-export interface AronApiResponse {
+export interface ApiResponse {
     code: number;
     errMsg: string | null;
     data: AronDataArray;

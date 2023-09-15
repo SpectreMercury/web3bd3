@@ -5,19 +5,19 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
     palette: {
         primary: {
-            main: 'rgb(255, 0, 122)',
+            main: '#766aff',
         },
         text: {
-            primary: '#f2f2f2',
-            secondary: '#f6f6f6'
+            primary: '#272d37',
+            secondary: '#5f6d7e'
         },
         action: {
             active: '#f2f2f2'
         },
         background: {
-            paper: '#191B1F'
+            paper: '#ffffff'
         },
-        divider: '#f2f2f2',
+        divider: '#f3f3f3',
 
     },
     components: {

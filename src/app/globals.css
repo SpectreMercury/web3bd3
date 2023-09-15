@@ -2,7 +2,7 @@ body {
   margin: 0;
 }
 :root {
-  background-color: #191B1F;
+  background-color: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -43,6 +43,14 @@ body {
   display: flex;
   height: 35px;
   line-height: 39px;
+}
+
+.text-black {
+  color: #272D37;
+}
+
+.text-grey {
+  color: #5f6d7e;
 }
 
 li, a {

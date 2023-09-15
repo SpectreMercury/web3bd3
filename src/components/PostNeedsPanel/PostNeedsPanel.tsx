@@ -20,8 +20,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import RefreshIcon from '@mui/icons-material/Refresh';
-// import {aronInstance, kjInstance} from "@/lib/api";
-import {AxiosResponse, AronApiResponse, AronDataArray } from '@/Types/aronInterface'
+import { fetchWithParams } from '@/lib/api'
+import { AronDataArray } from '@/Types/aronInterface'
 import { SnackbarCloseReason } from '@mui/material/Snackbar';
 import { Skeleton } from '@mui/material';
 import Link from "next/link";
@@ -54,11 +54,19 @@ const PostNeedsPanel: React.FC = () => {
     const [errorOpen, setErrorOpen] = useState<boolean>(false);
     const [desc, setDesc] = useState("")
     const [matchRlt, setMatchResult] = useState(false)
+    //stage-1 Get Suggestion， stage-2 Submit
+    const [oneClickStatus, setOneClickStatus] = useState("stage-1")
     const { walletAddress } = useWallet()
 
     const handleChange = (event: SelectChangeEvent<string[]>) => {
         setCrypto(event.target.value as string[]);
     };
+
+    const lines = [
+        "Please input your needs",
+        "Reference:",
+        "1. Send your information card to those projects who can post your information"
+    ];
 
     const handleClose = (event: SyntheticEvent | Event, reason: SnackbarCloseReason) => {
         if (reason === 'clickaway') {
@@ -70,17 +78,23 @@ const PostNeedsPanel: React.FC = () => {
 
     const fetchDataFromAron = async () => {
 
-        // if(!desc || !walletAddress) {
-        //     setErrorOpen(true)
-        //     return
-        // }
-        // try {
-        //     const response = await aronInstance.get<AronApiResponse>(`/recommend/list?item=${desc}&walletAddress=${walletAddress}`);
-        //     setDataFromAron(response.data.data);
-        //     setMatchResult(true)
-        // } catch (error) {
-        //     console.error('Error fetching data:', error);
-        // }
+        if(!desc || !walletAddress) {
+            setErrorOpen(true)
+            return
+        }
+        try {
+            const params = {
+                item: desc,
+                walletAddress: walletAddress
+            }
+            const response = await fetchWithParams(`http://124.223.105.57:8883/recommend/list`, params);
+
+            setDataFromAron(response.data); // 这里我假设你的API响应结构是{ data: { data: ... } }
+            setMatchResult(true);
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
 
         setMatchResult(true)
     }
@@ -115,9 +129,14 @@ const PostNeedsPanel: React.FC = () => {
                             <Typography variant="h6" color="text.secondary" gutterBottom>
                                 BD Requirements
                             </Typography>
-                            <Typography variant="overline" color="text.secondary">
-                                Send your information card to those projects who can post  your information card on X(twitter).
-                            </Typography>
+                            <TextField
+                                variant="outlined"
+                                fullWidth
+                                multiline
+                                placeholder={lines.join('\n')}
+                                value={desc}
+                                onChange={(e) => setDesc(e.target.value)}
+                            />
                         </div>
                         <div className={styles.requirementsContainer}>
                             <Typography variant="h6" color="text.secondary" gutterBottom>
@@ -160,14 +179,7 @@ const PostNeedsPanel: React.FC = () => {
                             <Typography variant="overline">
                                 Please introduce your project
                             </Typography>
-                            <TextField
-                                label="项目介绍"
-                                variant="outlined"
-                                fullWidth
-                                placeholder="Introduce your project"
-                                value={desc}
-                                onChange={(e) => setDesc(e.target.value)}
-                            />
+
                             <Divider />
                             <p className={styles.bolderFont}>
                                 Expiration time <span>(optional)</span>
@@ -196,9 +208,7 @@ const PostNeedsPanel: React.FC = () => {
                                 />
                             </Box>
                         </div>
-                        <Button onClick={fetchDataFromAron} className={styles.PostNeedsButton} variant="contained" color="primary">
-                            GO to BD by one-click!
-                        </Button>
+
                         {
                             matchRlt && (
                                 <>
@@ -225,12 +235,12 @@ const PostNeedsPanel: React.FC = () => {
                                             )}
                                         </div>
                                     </div>
-                                    <Button onClick={fetchDataFromAron} className={styles.PostNeedsButton}  variant="contained" color="primary">
-                                        GO to BD by one-click!
-                                    </Button>
                                 </>
                             )
                         }
+                        <Button onClick={fetchDataFromAron} className={styles.PostNeedsButton} variant="contained" color="primary">
+                            GO to BD by one-click!
+                        </Button>
                     </>
                 )}
             </Box>

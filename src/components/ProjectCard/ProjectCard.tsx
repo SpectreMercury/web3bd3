@@ -19,9 +19,9 @@ const MediaCard:React.FC<MediaCardProps> = ({ image, title, chips, type, network
 
     return (
         <Link href={'/info'}>
-            <Card className={styles.MediaCardItem} sx={{ maxWidth: 345 }}>
+            <Card className={styles.MediaCardItem} sx={{ width: 280, height: 398 }}>
                 <CardMedia
-                    sx={{ height: 140 }}
+                    sx={{ height: 160 }}
                     image={image}
                     title={title}
                 />
@@ -43,7 +43,8 @@ const MediaCard:React.FC<MediaCardProps> = ({ image, title, chips, type, network
                         textOverflow: 'ellipsis',
                         display:'-webkit-box',
                         WebkitBoxOrient: 'vertical',
-                        WebkitLineClamp: 3
+                        WebkitLineClamp: 5,
+                        fontSize: 16
                     }}>
                         {description}
                     </Typography>

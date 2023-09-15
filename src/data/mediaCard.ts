@@ -8,7 +8,7 @@ const mediaCardData: CardData[] = [
         type: "website",
         twitterName: "twitter",
         network: "zkSync",
-        chips: ["WIP", "PUBLIC GOODS"],
+        chips: ["WIP", "Layer2"],
         description: "The Mirror.xyz is a vital writing infrastructure in Web3. But their writing experience still has much room to be improved"
     },
     {
@@ -18,7 +18,7 @@ const mediaCardData: CardData[] = [
         type: "website",
         twitterName: "twitter",
         network: "zkSync",
-        chips: ["PUBLIC GOODS", "Layer2"],
+        chips: ["ZK", "Layer2"],
         description: "MyFirstLayer2 is an education project for newbies to learn and interact with Layer2. As you can see from the name, our users are beginners curious about the knowledge and projects on Layer2. "
     },
     {
@@ -28,7 +28,7 @@ const mediaCardData: CardData[] = [
         type: "website",
         twitterName: "twitter",
         network: "zkSync",
-        chips: ["PUBLIC GOODS", "INFRASTRUCTURE"],
+        chips: ["Layer2", "INFRASTRUCTURE"],
         description: "Img3 is an essential infrastructure in the Web3 storage field. It provides the easiest way for you to implement images rendering, uploading, etc. based on Web3 storage like IPFS."
     },
     {
@@ -38,7 +38,7 @@ const mediaCardData: CardData[] = [
         type: "website",
         twitterName: "twitter",
         network: "zkSync",
-        chips: ["WIP", "PUBLIC GOODS", "SECURITY"],
+        chips: ["WIP", "SECURITY"],
         description: "Redesign and/or polish the MobyMask features with Dan Finlay (MetaMask Founder), making MobyMask a production-ready product and fighting phishers!"
     },
     {
@@ -58,7 +58,7 @@ const mediaCardData: CardData[] = [
         type: "website",
         twitterName: "twitter",
         network: "zkSync",
-        chips: ["ERC20", "WIP", "PUBLIC GOODS"],
+        chips: ["ERC20", "WIP"],
         description: "Accept donations securely via a button on your website, or a link on social media , article and so on. Coming soon..."
     },
     {

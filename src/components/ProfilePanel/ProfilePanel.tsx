@@ -5,12 +5,12 @@
     import LanguageRoundedIcon from '@mui/icons-material/LanguageRounded';
     import TwitterIcon from '@mui/icons-material/Twitter';
     import WalletIcon from '@mui/icons-material/Wallet';
-    import { kj, getRequest } from '@/lib/api';
     import { useWallet } from "@/contexts/WalletContext";
     import { useWebSocket } from "@/contexts/WebsocketContext";
     import { ethers } from "ethers";
 
     import styles from './index.module.scss'
+    import createMetadataEvent from "@/lib/sig_metamask";
 
 
     type ProfileProps = {
@@ -94,27 +94,12 @@
                 twitterName: currentData.twitterName,
                 projectDescription: currentData.projectDescription,
             };
-            const timestamp = parseInt((Date.now() / 1000).toString());
-            const json = JSON.stringify([0, walletAddress, timestamp, 0, [], content]);
-            const event_hash_id = ethers.sha256(new TextEncoder().encode(json));
-            const metadata_event: MetadataEvent = {
-                id: event_hash_id,
-                pubkey: walletAddress,
-                created_at: timestamp,
-                kind: 0,
-                tags: [],
-                content: content,
-            };
-            const sig = await ethereum.request({
-                method: "personal_sign",
-                params: [ethers.hexlify(new TextEncoder().encode(json)), walletAddress]
-            });
-            metadata_event['sig'] = sig
+            let metadata = await createMetadataEvent(walletAddress || "", content)
 
             if(ws) {
                 console.log(1)
                 console.log(ws.readyState)
-                ws.send(JSON.stringify(["EVENT", metadata_event]))
+                ws.send(JSON.stringify(["EVENT", metadata]))
             }
         }
 

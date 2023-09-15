@@ -1,10 +1,19 @@
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[5].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[5].oneOf[9].use[5]!./src/components/CommonHeader/index.module.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.CommonHeader_HeaderWrapper__KqbGM {
+  display: flex;
+  height: 46px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+}
+
 .CommonHeader_logoText__4rMT6 {
-  width: 66px;
-  height: 66px;
-  background-image: url(/_next/static/media/logo.a87c9237.png);
+  width: 95px;
+  height: 22px;
+  background-image: url(/_next/static/media/logo.9277f258.png);
+  background-repeat: no-repeat;
   background-size: contain;
 }
 .CommonHeader_logoText__4rMT6:hover {
@@ -20,13 +29,6 @@
   display: flex;
   align-items: center;
   gap: 20px;
-}
-
-.CommonHeader_HeaderWrapper__KqbGM {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 24px;
 }
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[2].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[5].oneOf[2].use[2]!./node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Inter","arguments":[{"subsets":["latin"]}],"variableName":"inter"} ***!
@@ -104,7 +106,7 @@ body {
   margin: 0;
 }
 :root {
-  background-color: #191B1F;
+  background-color: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -145,6 +147,14 @@ body {
   display: flex;
   height: 35px;
   line-height: 39px;
+}
+
+.text-black {
+  color: #272D37;
+}
+
+.text-grey {
+  color: #5f6d7e;
 }
 
 li, a {
