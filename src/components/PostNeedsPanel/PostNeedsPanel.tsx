@@ -303,7 +303,6 @@ const PostNeedsPanel: React.FC = () => {
                                     label="Hours"
                                     value={hours}
                                     onChange={(e) => setHours(e.target.value)}
-                                    InputProps={{ endAdornment: <span>时</span> }} // 添加单位
                                     inputProps={{ min: "0", max: "24", step: "1" }}
                                 />
                                 <TextField
@@ -311,7 +310,6 @@ const PostNeedsPanel: React.FC = () => {
                                     label="Minutes"
                                     value={minutes}
                                     onChange={(e) => setMinutes(e.target.value)}
-                                    InputProps={{ endAdornment: <span>时</span> }} // 添加单位
                                     inputProps={{ min: "0", max: "60", step: "1" }}
                                 />
                             </Box>
